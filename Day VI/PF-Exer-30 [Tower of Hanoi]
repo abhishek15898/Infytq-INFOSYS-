@@ -1,0 +1,36 @@
+/*
+Go through the algorithm for solving the Tower of Hanoi problem. 
+
+*/
+
+#PF-Exer-30
+
+def find_average(mark_list):
+	total=0
+	try:
+	    for i in range(0, len(mark_list)+1):
+	        if(i<len(mark_list)):
+	            if(type(mark_list[i]=='int')):
+	                total+=mark_list[i]
+	    marks_avg=total/len(mark_list)
+	    return marks_avg
+	except IndexError:
+	    print("Index error occured")
+	except TypeError:
+		print("Type error occured")
+	except:
+		print("Some error occured")
+	
+m_list=[1,2,3,4]
+print("Average marks:", find_average(m_list))
+
+m_list=["1",2,3,4]
+print("Average marks:", find_average(m_list))
+
+m_list=[]
+print("Average marks:", find_average(m_list))
+
+mark1="A"
+mark1=int(float(mark1))
+m_list=[mark1,2,3,4]
+print("Average marks:", find_average(m_list))
