@@ -3,34 +3,20 @@ Go through the algorithm for solving the Tower of Hanoi problem.
 
 */
 
-#PF-Exer-30
+def tower_of_hanoi(n, source,destination,temp):
+    if(n==1):
+        disk=source.pop(0) #Removes the element in specified position
+        destination.insert(0,disk) #Inserts the given element in specified position
+        return
+    tower_of_hanoi(n-1, source, temp, destination)
+    disk=source.pop(0)
+    destination.insert(0,disk)
+    tower_of_hanoi(n-1, temp, destination, source)
+    return
 
-def find_average(mark_list):
-	total=0
-	try:
-	    for i in range(0, len(mark_list)+1):
-	        if(i<len(mark_list)):
-	            if(type(mark_list[i]=='int')):
-	                total+=mark_list[i]
-	    marks_avg=total/len(mark_list)
-	    return marks_avg
-	except IndexError:
-	    print("Index error occured")
-	except TypeError:
-		print("Type error occured")
-	except:
-		print("Some error occured")
-	
-m_list=[1,2,3,4]
-print("Average marks:", find_average(m_list))
-
-m_list=["1",2,3,4]
-print("Average marks:", find_average(m_list))
-
-m_list=[]
-print("Average marks:", find_average(m_list))
-
-mark1="A"
-mark1=int(float(mark1))
-m_list=[mark1,2,3,4]
-print("Average marks:", find_average(m_list))
+source=["blue","green","orange"]
+destination=[]
+temp=[]
+tower_of_hanoi(3, source, destination, temp)
+print("Source:",source)
+print("Destination:",destination)
